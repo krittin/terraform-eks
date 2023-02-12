@@ -13,7 +13,7 @@ This configuration creates an EKS cluster and a node group that span across 3 av
 - Terraform version 1.3.7 or above
 
 # Usage
-| Warning:  AWS charges $0.10 per hour for each EKS cluster so you will incur some charges, see more detail in [EKS pricing page](https://aws.amazon.com/eks/pricing/)|
+| Warning:  AWS charges $0.10 per hour for each EKS cluster so you will incur some charges, see [EKS pricing page](https://aws.amazon.com/eks/pricing/)|
 | - |
 1. Create backend.tfvars to store statefile in the S3 bucket
 ```
@@ -30,4 +30,8 @@ terraform init -backend-config=backend.tfvars
 ```
 terraform plan -var-file=$YOUR_VAR_FILES
 terraform apply -var-file=$YOUR_VAR_FILES
+```
+5. Point your kubectl to the cluser
+```
+aws eks update-kubeconfig --region $YOUR_AWS_REGION --name $YOUR_EKS_CLUSTER_NAME
 ```
