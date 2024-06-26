@@ -48,6 +48,13 @@ variable "worker_instance_types" {
   default = [ "t3.medium" ]
 }
 
+variable "worker_capacity_type" {
+  type = string
+  description = "Capacity type of underlying EC2 node - either ON_DEMAND or SPOT"
+  # Please see this guide https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html#managed-node-group-capacity-types
+  default = "ON_DEMAND"
+}
+
 variable "worker_count" {
   type = number
   description = "Number of worker nodes"

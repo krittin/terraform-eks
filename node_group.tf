@@ -5,7 +5,7 @@ resource "aws_eks_node_group" "eks_node_group" {
 
   subnet_ids = aws_subnet.private_subnets[*].id
 
-  capacity_type = "ON_DEMAND"
+  capacity_type = var.worker_capacity_type
   instance_types = var.worker_instance_types
 
   scaling_config {
