@@ -73,3 +73,8 @@ variable "worker_max" {
   default = 5
 }
 
+variable "my_private_cidrs" {
+  type = list(string)
+  description = "List CIDR blocks of your network from which you connect to EKS"
+}
+
