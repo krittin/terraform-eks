@@ -32,7 +32,7 @@ variable "eks_cluster_name" {
 variable "k8s_version" {
   type = string
   description = "Version of Kubernetes to run on EKS"
-  default = "1.24"
+  default = "1.25"
 }
 
 variable "pod_cidr" {
