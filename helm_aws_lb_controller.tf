@@ -6,12 +6,12 @@ provider "helm" {
 	}
 }
 
-resource "helm_release" "alb_controller" {
+resource "helm_release" "aws_lb_controller" {
 	namespace = "kube-system"
 	name = "aws-load-balancer-controller"
 	repository = "https://aws.github.io/eks-charts"
 	chart = "aws-load-balancer-controller"
-	version = var.alb_controller_helmchart_version
+	version = var.aws_lb_controller_helmchart_version
 
 	set {
 	  name = "clusterName"
@@ -23,6 +23,6 @@ resource "helm_release" "alb_controller" {
 	}
 	set {
 	  name = "serviceAccount.name"
-	  value = kubernetes_service_account.alb_controller.metadata[0].name
+	  value = kubernetes_service_account.aws_lb_controller.metadata[0].name
 	}
 }

@@ -9,11 +9,11 @@ provider "kubernetes" {
     token = data.aws_eks_cluster_auth.eks.token
 }
 
-resource "kubernetes_service_account" "alb_controller" {
+resource "kubernetes_service_account" "aws_lb_controller" {
   metadata {
     name = "aws-load-balancer-controller"
     annotations = {
-        "eks.amazonaws.com/role-arn" = aws_iam_role.alb_controller_role.arn
+        "eks.amazonaws.com/role-arn" = aws_iam_role.aws_lb_controller_role.arn
     }
     labels = {
         "app.kubernetes.io/managed-by" = "eksctl"

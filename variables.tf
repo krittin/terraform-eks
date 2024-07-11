@@ -78,7 +78,7 @@ variable "my_private_cidrs" {
   description = "List CIDR blocks of your network from which you connect to EKS"
 }
 
-variable "alb_controller_helmchart_version" {
+variable "aws_lb_controller_helmchart_version" {
   type = string
   description = "Version of AWS Load Balancer Controller Helm chart - https://artifacthub.io/packages/helm/aws/aws-load-balancer-controller"
   default = "1.8.1"
