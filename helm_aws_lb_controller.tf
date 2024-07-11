@@ -25,4 +25,9 @@ resource "helm_release" "aws_lb_controller" {
 	  name = "serviceAccount.name"
 	  value = kubernetes_service_account.aws_lb_controller.metadata[0].name
 	}
+
+	depends_on = [ 
+		aws_eks_node_group.eks_node_group,
+		kubernetes_service_account.aws_lb_controller
+	]
 }

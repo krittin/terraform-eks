@@ -21,4 +21,6 @@ resource "kubernetes_service_account" "aws_lb_controller" {
     namespace = "kube-system"
     
   }
+
+  depends_on = [ aws_eks_node_group.eks_node_group ]
 }
